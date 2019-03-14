@@ -26,7 +26,7 @@ class MigrateToInflux extends Command
         $this->influxDatabase = $client->selectDB('dolardeverdad');
 
         if (!$this->influxDatabase->exists()) {
-            $this->info('database doesnt exist, creating');
+//            $this->info('database doesnt exist, creating');
             $this->influxDatabase->create();
         }
 
