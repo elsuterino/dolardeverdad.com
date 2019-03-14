@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "19ab66a19d798b166ce90c8f647b8099",
+    "content-hash": "13ab03992f3db24f891a5df08dca625f",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1988,39 +1988,41 @@
             "time": "2018-07-19T23:38:55+00:00"
         },
         {
-            "name": "sutrius/export-analytics",
+            "name": "sutrius/utilities",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:sutrius/ExportAnalytics.git",
-                "reference": "e3e76d06553d62bb35d6c048e0c877184f816ad6"
+                "url": "git@github.com:sutrius/Utilities.git",
+                "reference": "368707636dec8d6cb612fbe170a372ac1b549548"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sutrius/ExportAnalytics/zipball/e3e76d06553d62bb35d6c048e0c877184f816ad6",
-                "reference": "e3e76d06553d62bb35d6c048e0c877184f816ad6",
+                "url": "https://api.github.com/repos/sutrius/Utilities/zipball/368707636dec8d6cb612fbe170a372ac1b549548",
+                "reference": "368707636dec8d6cb612fbe170a372ac1b549548",
                 "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "^6.3",
-                "illuminate/console": "*",
-                "illuminate/support": "5.*",
+                "illuminate/console": "^5.8.0",
+                "illuminate/http": "^5.8.0",
+                "illuminate/support": "^5.8.0",
                 "influxdb/influxdb-php": "^1.14",
                 "jenssegers/agent": "^2.6",
                 "lvht/geohash": "^1.1",
+                "php": "^7.1.3",
                 "predis/predis": "^1.1"
             },
             "type": "library",
             "extra": {
                 "laravel": {
                     "providers": [
-                        "Sutrius\\ExportAnalytics\\Providers\\ExportAnalyticsServiceProvider"
+                        "Sutrius\\Utilities\\Providers\\UtilitiesServiceProvider"
                     ]
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Sutrius\\ExportAnalytics\\": "src"
+                    "Sutrius\\Utilities\\": "src"
                 }
             },
             "license": [
@@ -2032,12 +2034,12 @@
                     "email": "wytuxas@gmail.com"
                 }
             ],
-            "description": "Middleware and command to export data into influxdb",
+            "description": "Midllewares, commands for personal use",
             "support": {
-                "source": "https://github.com/sutrius/ExportAnalytics/tree/master",
-                "issues": "https://github.com/sutrius/ExportAnalytics/issues"
+                "source": "https://github.com/sutrius/Utilities/tree/master",
+                "issues": "https://github.com/sutrius/Utilities/issues"
             },
-            "time": "2019-03-13T14:57:51+00:00"
+            "time": "2019-03-14T09:45:11+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

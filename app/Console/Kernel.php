@@ -25,7 +25,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('parse:data')->everyTenMinutes();
-        $schedule->command('export:analytics')->everyMinute()->withoutOverlapping();
+        $schedule->command('sutrius:export-analytics')->everyMinute()->withoutOverlapping();
     }
 
     /**

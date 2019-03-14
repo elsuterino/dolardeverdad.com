@@ -36,7 +36,7 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['daily'],
+            'channels' => ['daily', 'slack'],
             'ignore_exceptions' => false,
         ],
 
@@ -55,8 +55,8 @@ return [
 
         'slack' => [
             'driver' => 'slack',
-            'url' => env('LOG_SLACK_WEBHOOK_URL'),
-            'username' => 'Laravel Log',
+            'url' => 'https://hooks.slack.com/services/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',
+            'username' => 'Dolardeverdad.com',
             'emoji' => ':boom:',
             'level' => 'critical',
         ],

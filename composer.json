@@ -9,7 +9,7 @@
     "license": "MIT",
     "repositories": [
         {
-            "url": "git@github.com:sutrius/ExportAnalytics.git",
+            "url": "git@github.com:sutrius/Utilities.git",
             "type": "vcs"
         }
     ],
@@ -20,8 +20,8 @@
         "laravel/tinker": "^1.0",
         "influxdb/influxdb-php": "^1.14",
         "predis/predis": "^1.1",
-      "ext-json": "*",
-        "sutrius/export-analytics": "master"
+        "ext-json": "*",
+        "sutrius/utilities": "master"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

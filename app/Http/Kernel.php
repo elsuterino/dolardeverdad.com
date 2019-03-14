@@ -60,7 +60,8 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'track-access' => \Sutrius\ExportAnalytics\Middleware\Tracker::class
+        'sut-track-access' => \Sutrius\Utilities\Middleware\TrackerLogRequestMiddleware::class,
+        'sut-compress' => \Sutrius\Utilities\Middleware\CompressResponseMiddleware::class
     ];
 
     /**
