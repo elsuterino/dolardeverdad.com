@@ -56,9 +56,9 @@ return [
         'slack' => [
             'driver' => 'slack',
             'url' => 'https://hooks.slack.com/services/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',
-            'username' => 'Dolardeverdad.com',
+            'username' => 'Dolardeverdad.com ' . env('APP_ENV'),
             'emoji' => ':boom:',
-            'level' => 'critical',
+            'level' => 'error',
         ],
 
         'papertrail' => [
