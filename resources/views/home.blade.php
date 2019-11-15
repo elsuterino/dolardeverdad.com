@@ -57,56 +57,81 @@
                                     dónde quedan, la tasa actual es:
                         </p>
                     </div>
-                    <div class="flex-col rounded-lg xl:mr-2">
-                            <div class="flex justify-around">
-                                <div class="border border-blue-600 rounded-lg p-2 m-1">
+                    <div class="flex-col border border-blue-700 rounded-lg mx-4 px-2">
+                        <div class="flex justify-between border-b border-blue-800 p-1 m-1">  
+                            <div>
                                 <p class="text-2xl text-blue-light font-bold roboto">
-                                        1
-                                        <sub class="text-xl">EUR</sub> = {{ number_format(getCurrency('VESEUR', 'value')) }}
-                                        <sub class="text-xl">VES</sub>
-                                    </p>
-                                </div>
-
-                                <div class="border border-blue-600 rounded-lg p-2 m-1">
-                                    <p class="text-2xl text-blue-light font-bold roboto">
-                                        1
-                                        <sub class="text-lg">USD</sub> = {{ number_format(getCurrency('VESUSD', 'value')) }}
-                                        <sub class="text-lg">VES</sub>
-                                    </p>
-                                </div>
-
+                                    1
+                                    <span class="text-lg">USD</span> = {{ number_format(getCurrency('VESUSD', 'value')) }}
+                                    <span class="text-lg">VES</span>
+                                </p>
                             </div>
-                            <div class="flex justify-around">
-                                <div class="border border-blue-600 rounded-lg p-2 m-1">
-                                    <p class="text-2xl text-blue-light font-bold roboto">
-                                        1
-                                        <sub class="text-lg">ARS</sub> = {{ number_format(getCurrency('VESARS', 'value')) }}
-                                        <sub class="text-lg">VES</sub>
-                                    </p>
-                                </div>
-                                <div class="border border-blue-600 rounded-lg p-2 m-1">
-                                    <p class="text-2xl text-blue-light font-bold roboto">
-                                        1
-                                        <sub class="text-lg">CLP</sub> = {{ number_format(getCurrency('VESCLP', 'value')) }}
-                                        <sub class="text-lg">VES</sub>
-                                    </p>
-                                </div>
-                                <div class="border border-blue-600 rounded-lg p-2 m-1">
-                                    <p class="text-2xl text-blue-light font-bold roboto">
-                                        1
-                                        <sub class="text-lg">COP</sub> = {{ number_format(getCurrency('VESCOP', 'value')) }}
-                                        <sub class="text-lg">VES</sub>
-                                    </p>
-                                </div>
-                                <div class="border border-blue-600 rounded-lg p-2 m-1">
-                                    <p class="text-2xl text-blue-light font-bold roboto">
-                                        1
-                                        <sub class="text-lg">PEN</sub> = {{ number_format(getCurrency('VESPEN', 'value')) }}
-                                        <sub class="text-lg">VES</sub>
-                                    </p>
-                                </div>
+                            <div class="flex items-center">
+                                <img class="flag" alt="Dolar estadounidense" src="https://www.currencyexchangetoday.com/images/currency/USD.svg">
+                            </div> 
+                        </div>  
+                        <div class="flex justify-between border-b border-blue-800 p-1 m-1">  
+                            <div>
+                                <p class="text-2xl text-blue-light font-bold roboto">
+                                    1
+                                    <span class="text-lg">EUR</span> = {{ number_format(getCurrency('VESEUR', 'value')) }}
+                                    <span class="text-lg">VES</span>
+                                </p>
                             </div>
+                            <div class="flex items-center">
+                                <img class="flag" alt="Euro" src="https://www.currencyexchangetoday.com/images/currency/EUR.svg">
+                            </div> 
+                        </div>
+                        <div class="flex justify-between border-b border-blue-800 p-1 m-1">  
+                            <div>
+                                <p class="text-2xl text-blue-light font-bold roboto">
+                                    1
+                                    <span class="text-lg">ARS</span> = {{ number_format(getCurrency('VESARS', 'value')) }}
+                                    <span class="text-lg">VES</span>
+                                </p>
+                            </div>
+                            <div class="flex items-center">
+                                <img class="flag" alt="Peso Argentino" src="https://www.currencyexchangetoday.com/images/currency/ARS.svg">
+                            </div> 
+                        </div>  
+                        <div class="flex justify-between border-b border-blue-800 p-1 m-1">  
+                            <div>
+                                <p class="text-2xl text-blue-light font-bold roboto">
+                                    1
+                                    <span class="text-lg">CLP</span> = {{ number_format(getCurrency('VESCLP', 'value')) }}
+                                    <span class="text-lg">VES</span>
+                                </p>
+                            </div>
+                            <div class="flex items-center">
+                                <img class="flag" alt="Peso Chileno" src="https://www.currencyexchangetoday.com/images/currency/CLP.svg">
+                            </div> 
+                        </div>
+                        <div class="flex justify-between border-b border-blue-800 p-1 m-1">  
+                            <div>
+                                <p class="text-2xl text-blue-light font-bold roboto">
+                                    1
+                                    <span class="text-lg">COP</span> = {{ number_format(getCurrency('VESCOP', 'value')) }}
+                                    <span class="text-lg">VES</span>
+                                </p>
+                            </div>
+                            <div class="flex items-center">
+                                <img class="flag" alt="Peso Colombiano" src="https://www.currencyexchangetoday.com/images/currency/COP.svg">
+                            </div> 
+                        </div>  
+                        <div class="flex justify-between p-1 m-1">  
+                            <div>
+                                <p class="text-2xl text-blue-light font-bold roboto">
+                                    1
+                                    <span class="text-lg">PEN</span> = {{ number_format(getCurrency('VESPEN', 'value')) }}
+                                    <span class="text-lg">VES</span>
+                                </p>
+                            </div>
+                            <div class="flex items-center">
+                                <img class="flag" alt="Sol Peruano" src="https://www.currencyexchangetoday.com/images/currency/PEN.svg">
+                            </div> 
+                        </div>                        
                     </div>
+                    
                     <div class="pb-4 text-blue-lighter">
                         <p class="pb-4  leading-normal">
                             ¿De dónde se obtiene el precio? de la simple oferta y demanda, es decir, de las transacciones
@@ -160,7 +185,7 @@
                 <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
                 <div id="subad" class="flex justify-center text-white text-sm mt-1">
                     <div class="inline-flex">
-                        <img src="https://brave.com/wp-content/uploads/2018/02/brave_icon_512x_twitter.png" class="h-4 w-4">
+                        <img class="flag" src="https://brave.com/wp-content/uploads/2018/02/brave_icon_512x_twitter.png" class="h-4 w-4">
                         <a href="https://brave.com/dol014" class="mr-1 text-orange-light hover:text-orange">Brave</a>
                         is a browser that is build on chrome, with attention to privacy, speed and blocking ads like theese.
                     </div>
