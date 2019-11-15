@@ -17,7 +17,7 @@ class HomeController extends Controller
             "currency" => "USD",
             "currentExchangeRate" => [
                 "@type" => "UnitPriceSpecification",
-                "price" => number_format(Cache::get('latest:ves-local-coinbase')),
+                "price" => round(getCurrency('VESUSD', 'value'), 2),
                 "priceCurrency" => "VES",
             ],
         ]);

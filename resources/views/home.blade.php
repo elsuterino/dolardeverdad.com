@@ -46,7 +46,7 @@
         <div class="pb-4">
             <p class="text-5xl font-bold text-white">
                 Dolar de verdad
-            </p>                
+            </p>
         </div>
         <div id="app" class="md:flex">
             <div class="md:w-1/2 px-1">
@@ -62,7 +62,7 @@
                                 <div class="border border-blue-600 rounded-lg p-2 m-1">
                                 <p class="text-2xl text-blue-light font-bold roboto">
                                         1
-                                        <sub class="text-xl">EUR</sub> = {{ number_format(Cache::get('latest:ves-local-coinbase')) }}
+                                        <sub class="text-xl">EUR</sub> = {{ number_format(getCurrency('VESEUR', 'value')) }}
                                         <sub class="text-xl">VES</sub>
                                     </p>
                                 </div>
@@ -70,7 +70,7 @@
                                 <div class="border border-blue-600 rounded-lg p-2 m-1">
                                     <p class="text-2xl text-blue-light font-bold roboto">
                                         1
-                                        <sub class="text-lg">USD</sub> = {{ number_format(Cache::get('latest:ves-local-coinbase')) }}
+                                        <sub class="text-lg">USD</sub> = {{ number_format(getCurrency('VESUSD', 'value')) }}
                                         <sub class="text-lg">VES</sub>
                                     </p>
                                 </div>
@@ -80,31 +80,31 @@
                                 <div class="border border-blue-600 rounded-lg p-2 m-1">
                                     <p class="text-2xl text-blue-light font-bold roboto">
                                         1
-                                        <sub class="text-lg">ARS</sub> = {{ number_format(Cache::get('latest:ves-local-coinbase')) }}
+                                        <sub class="text-lg">ARS</sub> = {{ number_format(getCurrency('VESARS', 'value')) }}
                                         <sub class="text-lg">VES</sub>
                                     </p>
                                 </div>
                                 <div class="border border-blue-600 rounded-lg p-2 m-1">
                                     <p class="text-2xl text-blue-light font-bold roboto">
                                         1
-                                        <sub class="text-lg">CLP</sub> = {{ number_format(Cache::get('latest:ves-local-coinbase')) }}
-                                        <sub class="text-lg">VES</sub>
-                                    </p>
-                                </div>       
-                                <div class="border border-blue-600 rounded-lg p-2 m-1">
-                                    <p class="text-2xl text-blue-light font-bold roboto">
-                                        1
-                                        <sub class="text-lg">COP</sub> = {{ number_format(Cache::get('latest:ves-local-coinbase')) }}
+                                        <sub class="text-lg">CLP</sub> = {{ number_format(getCurrency('VESCLP', 'value')) }}
                                         <sub class="text-lg">VES</sub>
                                     </p>
                                 </div>
                                 <div class="border border-blue-600 rounded-lg p-2 m-1">
                                     <p class="text-2xl text-blue-light font-bold roboto">
                                         1
-                                        <sub class="text-lg">PEN</sub> = {{ number_format(Cache::get('latest:ves-local-coinbase')) }}
+                                        <sub class="text-lg">COP</sub> = {{ number_format(getCurrency('VESCOP', 'value')) }}
                                         <sub class="text-lg">VES</sub>
                                     </p>
-                                </div>                                                          
+                                </div>
+                                <div class="border border-blue-600 rounded-lg p-2 m-1">
+                                    <p class="text-2xl text-blue-light font-bold roboto">
+                                        1
+                                        <sub class="text-lg">PEN</sub> = {{ number_format(getCurrency('VESPEN', 'value')) }}
+                                        <sub class="text-lg">VES</sub>
+                                    </p>
+                                </div>
                             </div>
                     </div>
                     <div class="pb-4 text-blue-lighter">
@@ -133,7 +133,7 @@
                             Dolares
                         </p>
                     </div>
-					
+
                 </div>
             </div>
             <div class="md:w-1/2 px-1">
@@ -167,7 +167,7 @@
                 </div>
         </div>
     </section>
-    
+
 
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
@@ -176,13 +176,13 @@
 
 
 
-  
- 
-
-    
-
-                
 
 
-                
+
+
+
+
+
+
+
 
