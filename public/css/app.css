@@ -11433,6 +11433,12 @@ video {
   opacity: 0.99;
 }
 
+.flag {
+  border-radius: 0.375rem;
+  width: 32px;
+  height: 24px;
+}
+
 .open-sans {
   font-family: "Open Sans", sans-serif;
 }
