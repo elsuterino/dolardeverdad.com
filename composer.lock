@@ -639,8 +639,8 @@
             "version": "dev-master",
             "dist": {
                 "type": "path",
-                "url": "/usr/share/nginx/dolardeverdad.com/packages/Inetvi/CurrencyBitcoin",
-                "reference": "0f71e98126beb9fddccd39de7fca25d53e25ee35"
+                "url": "packages/Inetvi/CurrencyBitcoin",
+                "reference": "232c50b2de74fe08dd94f09f029d9d3f4c66d76d"
             },
             "require": {
                 "illuminate/support": "~5 || ~6"
