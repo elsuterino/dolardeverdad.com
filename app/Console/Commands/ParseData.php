@@ -3,11 +3,12 @@
 namespace App\Console\Commands;
 
 use Carbon\Carbon;
-use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
+use Inetvi\CurrencyBitcoin\Facades\CurrencyBitcoin;
 use InfluxDB\Client;
 use InfluxDB\Database;
+use InfluxDB\Exception;
 use InfluxDB\Point;
 
 class ParseData extends Command
@@ -25,111 +26,148 @@ class ParseData extends Command
      * @var string
      */
     protected $description = 'Command description';
+
+    /**
+     * @var Database
+     */
     protected $influxDatabase;
 
     /**
      * Execute the console command.
      *
-     * @return mixed
-     * @throws \InfluxDB\Database\Exception
-     * @throws \InfluxDB\Exception
+     * @throws Exception
      * @throws \Exception
      */
     public function handle()
     {
-        $client = new Client('localhost', 8086);
-        $this->influxDatabase = $client->selectDB('dolardeverdad');
+        $this->influxDatabase = $this->influxDatabase();
 
-        if (!$this->influxDatabase->exists()) {
-//            $this->info('database doesnt exist, creating');
-            $this->influxDatabase->create();
-        }
+        $coinbase = CurrencyBitcoin::coinbase();
+        $localbitcoin = CurrencyBitcoin::localbitcoin();
 
-        $localbitcoin = $this->apiToArray('https://localbitcoins.com/bitcoinaverage/ticker-all-currencies/');
-        $coinbase = $this->apiToArray('https://api.coinbase.com/v2/prices/sell?currency=USD');
+        $ves = $localbitcoin->getPrice('VES');
 
-        $ves = $localbitcoin['VES']['avg_1h'] ?? $localbitcoin['VES']['avg_6h'] ?? $localbitcoin['VES']['avg_12h'] ?? $localbitcoin['VES']['avg_24h'] ?? $localbitcoin['VES']['rates']['last'] ?? exit;
-        $usd = $coinbase['data']['amount'];
+        $this->save('VESvalue', 'VES', 'USD', $ves, $coinbase->getPrice('USD'));
+        $this->save('VESCOP', 'VES', 'COP', $ves, $coinbase->getPrice('COP'));
+        $this->save('VESARS', 'VES', 'ARS', $ves, $coinbase->getPrice('ARS'));
+        $this->save('VESCLP', 'VES', 'CLP', $ves, $coinbase->getPrice('CLP'));
+        $this->save('VESPEN', 'VES', 'PEN', $ves, $coinbase->getPrice('PEN'));
+        $this->save('VESEUR', 'VES', 'EUR', $ves, $coinbase->getPrice('EUR'));
 
-        $this->influxDatabase->writePoints([
-            new Point(
-                'VESvalue', // the name of the measurement
-                round($ves / $usd, 2), // measurement value
-                [], // measurement tags
-                [], // measurement fields
-                Carbon::now()->timestamp
-            )
-        ], Database::PRECISION_SECONDS);
-
-        Cache::forever('chart-dataset',
-            $this->makeChartData()
-        );
-
-        Cache::forever('latest:ves-local-coinbase',
-            round($ves / $usd, 2)
-        );
 
         Cache::forever('latest:localhost:moved-today:usd',
-            round($localbitcoin['USD']['avg_24h'] * $localbitcoin['USD']['volume_btc'], 2)
+            round($localbitcoin->raw()['USD']['avg_24h'] * $localbitcoin->raw()['USD']['volume_btc'], 2)
         );
 
         Cache::forever('latest:localhost:moved-today:ves',
-            round($localbitcoin['VES']['avg_24h'] * $localbitcoin['VES']['volume_btc'], 2)
+            round($localbitcoin->raw()['VES']['avg_24h'] * $localbitcoin->raw()['VES']['volume_btc'], 2)
         );
 
         Cache::forever('latest:timestamp', Carbon::now()->timestamp);
     }
 
-    private function apiToArray($url, $method = 'GET')
+    /**
+     * @param $DBKey
+     * @param $source
+     * @param $target
+     * @param $sourceVal
+     * @param $targetVal
+     * @throws Exception
+     */
+    private function save($DBKey, $source, $target, $sourceVal, $targetVal)
     {
-        $client = new \GuzzleHttp\Client();
+        $value = round($sourceVal / $targetVal, 2);
 
-        try {
-            $response = $client->request($method, $url);
-        } catch (GuzzleException $e) {
-            Sleep(10);
-            return $this->apiToArray($url, $method);
-        }
+        $this->saveInDatabase($DBKey, $value);
 
-        return json_decode($response->getBody(), true);
+        Cache::forever($source . $target, [
+            'source' => $source,
+            'target' => $target,
+            'value' => $value,
+            'chartData' => $this->makeChartData($DBKey),
+            'created_at' => now()
+        ]);
     }
 
     /**
-     * @throws \InfluxDB\Exception
+     * @return Database
+     */
+    private function influxDatabase()
+    {
+        $client = new Client('localhost', 8086);
+
+        $influxDatabase = $client->selectDB('dolardeverdad');
+
+        if (!$influxDatabase->exists()) {
+            try {
+                $influxDatabase->create();
+            } catch (Database\Exception $e) {
+                log('failed creating database');
+            }
+        }
+
+        return $influxDatabase;
+    }
+
+    /**
+     * @param  string  $key
+     * @param $value
+     * @throws Database\Exception
+     * @throws Exception
+     */
+    private function saveInDatabase(string $key, $value)
+    {
+        $this->influxDatabase->writePoints([
+            new Point(
+                $key, // the name of the measurement
+                $value, // measurement value
+                [], // measurement tags
+                [], // measurement fields
+                Carbon::now()->timestamp
+            ),
+        ], Database::PRECISION_SECONDS);
+    }
+
+    /**
+     * @param $key
+     * @return array
+     * @throws Client\Exception
      * @throws \Exception
      */
-    private function makeChartData()
+    private function makeChartData($key)
     {
-        $firstEntry =  $this->influxDatabase->query("SELECT * FROM VESvalue ORDER BY time ASC LIMIT 1")->getPoints();
+        $firstEntry = $this->influxDatabase->query(/** @lang text */ "SELECT * FROM {$key} ORDER BY time ASC LIMIT 1")->getPoints();
 
-        if(!isset($firstEntry[0])){
+        if (!isset($firstEntry[0])) {
             exit;
         }
 
         $interval = ceil(Carbon::parse($firstEntry[0]['time'])->diffInHours() / 500);
 
         $chartData = $this->influxDatabase
-            ->query("SELECT MEDIAN(*) FROM VESvalue GROUP BY time({$interval}h)")
+            ->query(/** @lang text */ "SELECT MEDIAN(*) FROM {$key} GROUP BY time({$interval}h)")
             ->getSeries();
 
-        $chart = [[
-            'name' => 'some name here',
-            'type' => 'line',
-            'smooth' => false,
-            'symbol' => 'none',
-            'sampling' => 'average',
-            'itemStyle' => [
-                'color' => '#fff'
+        $chart = [
+            [
+                'name' => 'some name here',
+                'type' => 'line',
+                'smooth' => false,
+                'symbol' => 'none',
+                'sampling' => 'average',
+                'itemStyle' => [
+                    'color' => '#fff',
+                ],
+                'lineStyle' => [
+                    'width' => 1,
+                ],
+                'areaStyle' => [
+                    'color' => 'rgba(255,255,255,0.2)',
+                ],
+                'connectNulls' => true,
+                'data' => $chartData[0]['values'],
             ],
-            'lineStyle' => [
-                'width' => 1,
-            ],
-            'areaStyle' => [
-                'color' => 'rgba(255,255,255,0.2)'
-            ],
-            'connectNulls' => true,
-            'data' => $chartData[0]['values']
-        ]];
+        ];
 
         return $chart;
     }

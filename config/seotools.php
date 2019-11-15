@@ -67,6 +67,9 @@ return [
             'url' => false, // Set null for using Url::current(), set false to total remove
             'type' => 'WebPage',
             'images' => ['/favicons/android-chrome-512x512.png'],
+            "sameAs" => [
+                "https://twitter.com/weworkremotely",
+            ],
         ],
     ],
 ];
