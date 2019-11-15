@@ -5,30 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <meta name="yandex-verification" content="0c762508645a7168" />
+    <meta name="yandex-verification" content="0c762508645a7168"/>
+    <script data-ad-client="ca-pub-6381837279968330" async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
-    <title>Dólar de Verdad – El verdadero precio del dólar en Venezuela</title>
-    <meta name="description"
-          content="Precio del dólar en Venezuela basado en transacciones completadas y no en especulaciones">
-
-    {{-- titles --}}
-    <meta property="og:site_name" content="Dólar de Verdad"/>
-    <meta property="og:title" content="El verdadero precio del dólar en Venezuela"/>
-    <meta property="twitter:title" content="El verdadero precio del dólar en Venezuela"/>
-    <title>Dólar de Verdad - El verdadero precio del dólar en Venezuela</title>
-
-    {{-- descriptions --}}
-    <meta property="og:description"
-          content="Precio del dólar en Venezuela basado en transacciones completadas y no en especulaciones"/>
-    <meta property="twitter:description"
-          content="Precio del dólar en Venezuela basado en transacciones completadas y no en especulaciones"/>
-    <meta name="description"
-          content="Precio del dólar en Venezuela basado en transacciones completadas y no en especulaciones"/>
-
-    {{-- image --}}
-    <meta property="og:image" content="/favicons/android-chrome-512x512.png"/>
-    <meta property="twitter:image" content="/favicons/android-chrome-512x512.png"/>
-
+    {!! SEO::generate() !!}
 
     <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
@@ -39,6 +20,7 @@
     <meta name="theme-color" content="#ffffff">
     <!-- Fonts -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
+
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
@@ -55,45 +37,15 @@
 
         gtag('config', 'UA-40405144-9');
     </script>
-
-    <style>
-        .bg:before {
-            background: url({{ asset('image/saving-a-dollar-coin.svg') }}) no-repeat center bottom;
-            background-size: cover;
-            /*mix-blend-mode: multiply;*/
-            /*filter: grayscale(100%);*/
-            content: "";
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.1;
-        }
-
-        .bg {
-            opacity: 0.99;
-        }
-
-        .open-sans {
-            font-family: 'Open Sans', arial, sans-serif;
-        }
-
-        .roboto {
-            font-family: 'Roboto', arial, sans-serif;
-        }
-    </style>
 </head>
 <body class="open-sans">
-<div id="app" class="min-h-screen bg-blue-darker bg">
+<div class="min-h-screen bg-blue-500 bg">
     <section class="container mx-auto pt-12 md:pt-32 p-4">
 
         <p class="pb-4 text-5xl font-bold text-white roboto">
             Dolar de verdad
         </p>
-        <div class="md:flex">
+        <div id="app" class="md:flex">
             <div class="md:w-1/2">
                 <div class="pb-4 text-blue-lighter">
                     <p class="pb-4 leading-normal">
@@ -104,7 +56,7 @@
                     <p class="pb-4 text-5xl text-blue-light font-bold roboto">
                         1<sub class="text-2xl">USD</sub> = {{ number_format(Cache::get('latest:ves-local-coinbase')) }}
                         <sub
-                                class="text-2xl">VES</sub>
+                            class="text-2xl">VES</sub>
                     </p>
 
                     <p class="pb-4  leading-normal">
@@ -121,12 +73,14 @@
                     </p>
 
                     <p class="pb-4">
-                        <span class="text-blue-light text-lg">{{ number_format(Cache::get('latest:localhost:moved-today:ves')) }}</span>
+                        <span
+                            class="text-blue-light text-lg">{{ number_format(Cache::get('latest:localhost:moved-today:ves')) }}</span>
                         Bolivares
                     </p>
 
                     <p class="pb-4">
-                        <span class="text-blue-light text-lg">{{ number_format(Cache::get('latest:localhost:moved-today:usd')) }}</span>
+                        <span
+                            class="text-blue-light text-lg">{{ number_format(Cache::get('latest:localhost:moved-today:usd')) }}</span>
                         Dolares
                     </p>
                 </div>
@@ -135,6 +89,32 @@
 
             <div class="md:w-1/2">
                 <v-chart :data='{!! json_encode(Cache::get('chart-dataset')) !!}'></v-chart>
+            </div>
+        </div>
+        <div id="ad">
+
+            <script type="text/javascript">
+                amzn_assoc_ad_type = "banner";
+                amzn_assoc_marketplace = "amazon";
+                amzn_assoc_region = "US";
+                amzn_assoc_placement = "assoc_banner_placement_default";
+                amzn_assoc_campaigns = "wireless";
+                amzn_assoc_banner_type = "category";
+                amzn_assoc_p = "48";
+                amzn_assoc_isresponsive = "false";
+                amzn_assoc_banner_id = "0TJY74H4VE9W4MDG6J82";
+                amzn_assoc_width = "728";
+                amzn_assoc_height = "90";
+                amzn_assoc_tracking_id = "inetvi0c-20";
+                amzn_assoc_linkid = "9d18c3020e78550dd6753f37b13e628d";
+            </script>
+            <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
+            <div id="subad" class="flex justify-center text-white text-sm mt-1">
+                <div class="inline-flex">
+                    <img src="https://brave.com/wp-content/uploads/2018/02/brave_icon_512x_twitter.png" class="h-4 w-4">
+                    <a href="https://brave.com/dol014" class="mr-1 text-orange-light hover:text-orange">Brave</a>
+                    is a browser that is build on chrome, with attention to privacy, speed and blocking ads like theese.
+                </div>
             </div>
         </div>
 

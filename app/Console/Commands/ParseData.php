@@ -28,25 +28,6 @@ class ParseData extends Command
     protected $influxDatabase;
 
     /**
-     * Create a new command instance.
-     *
-     * @throws \InfluxDB\Database\Exception
-     * @return void
-     */
-    public function __construct()
-    {
-        $client = new Client('localhost', 8086);
-        $this->influxDatabase = $client->selectDB('dolardeverdad');
-
-        if (!$this->influxDatabase->exists()) {
-//            $this->info('database doesnt exist, creating');
-            $this->influxDatabase->create();
-        }
-
-        parent::__construct();
-    }
-
-    /**
      * Execute the console command.
      *
      * @return mixed
@@ -56,6 +37,14 @@ class ParseData extends Command
      */
     public function handle()
     {
+        $client = new Client('localhost', 8086);
+        $this->influxDatabase = $client->selectDB('dolardeverdad');
+
+        if (!$this->influxDatabase->exists()) {
+//            $this->info('database doesnt exist, creating');
+            $this->influxDatabase->create();
+        }
+
         $localbitcoin = $this->apiToArray('https://localbitcoins.com/bitcoinaverage/ticker-all-currencies/');
         $coinbase = $this->apiToArray('https://api.coinbase.com/v2/prices/sell?currency=USD');
 

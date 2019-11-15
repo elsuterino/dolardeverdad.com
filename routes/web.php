@@ -11,4 +11,4 @@
 |
 */
 
-Route::middleware(['sut-track-access', 'sut-compress'])->get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index');
