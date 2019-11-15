@@ -41,23 +41,23 @@
         gtag('config', 'UA-40405144-9');
     </script>
 </head>
-<body class="open-sans text-xl bg-blue-800 bg">
-    <section class="container mx-auto pt-12 md:pt-32 p-2">
-        <div class="pb-4">
-            <p class="text-5xl font-bold text-white">
+<body class="open-sans text-lg text-blue-lighter md:text-xl bg-blue-800 bg">
+    <section class="container mx-auto pt-8 md:pt-32 px-2">
+        <div class="mb-4">
+            <p class="text-3xl md:text-5xl font-bold text-white">
                 Dolar de verdad
             </p>
         </div>
         <div id="app" class="md:flex">
             <div class="md:w-1/2 px-1">
                 <div>
-                    <div class="pb-4">
-                        <p class="text-blue-lighter">
+                    <div class="mb-4">
+                        <p class="">
                                     Dile adiós a todos los promedios, a los animales raros y a las casas de cambio que nadie sabe
-                                    dónde quedan, la tasa actual es:
+                                    dónde quedan, la tasa verdad es:
                         </p>
                     </div>
-                    <div class="flex-col border border-blue-700 rounded-lg mx-4 px-2">
+                    <div class="flex-col border border-blue-700 rounded-lg mx-4 mt-2 mb-4 px-2">
                         <div class="flex justify-between border-b border-blue-800 p-1 m-1">  
                             <div>
                                 <p class="text-2xl text-blue-light font-bold roboto">
@@ -129,10 +129,10 @@
                             <div class="flex items-center">
                                 <img class="flag" alt="Sol Peruano" src="https://www.currencyexchangetoday.com/images/currency/PEN.svg">
                             </div> 
-                        </div>                        
+                        </div>                                              
                     </div>
                     
-                    <div class="pb-4 text-blue-lighter">
+                    <div class="pb-4">
                         <p class="pb-4  leading-normal">
                             ¿De dónde se obtiene el precio? de la simple oferta y demanda, es decir, de las transacciones
                             reales completadas del sitio
@@ -142,8 +142,7 @@
                         </p>
 
                         <p class="pb-4">
-                            Durante las últimas 24 horas se han completado transacciones de compra/venta por un costo total
-                            de:
+                            Durante las últimas 24 horas se han completado transacciones de compra y venta por un costo total de:
                         </p>
 
                         <p class="pb-4">
@@ -161,8 +160,7 @@
 
                 </div>
             </div>
-            <div class="md:w-1/2 px-1">
-                    chart
+            <div class="md:w-1/2 px-1 md:ml-5 md:mt-2">
                     <v-chart :data='{!! json_encode(Cache::get('chart-dataset')) !!}'></v-chart>
             </div>
         </div>
