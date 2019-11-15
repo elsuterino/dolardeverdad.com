@@ -10,7 +10,7 @@
     "repositories": {
         "inetvi/currencybitcoin": {
             "type": "path",
-            "url": "/usr/share/nginx/dolardeverdad.com/packages/Inetvi/CurrencyBitcoin"
+            "url": "packages/Inetvi/CurrencyBitcoin"
         }
     },
     "require": {
