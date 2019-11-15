@@ -11417,16 +11417,28 @@ video {
   opacity: 0.1;
 }
 
+.body-bg {
+  background-color: #1c3d5a;
+}
+
+.text-blue-light {
+  color: #6cb2eb;
+}
+
+.text-blue-lighter {
+  color: #bcdefa;
+}
+
 .bg {
   opacity: 0.99;
 }
 
 .open-sans {
-  font-family: "Open Sans", arial, sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .roboto {
-  font-family: "Roboto", arial, sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 #amznBanners_assoc_banner_placement_default_0_img {
