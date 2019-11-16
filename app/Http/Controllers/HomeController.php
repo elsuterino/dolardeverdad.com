@@ -25,18 +25,17 @@ class HomeController extends Controller
         $currenciesToCompare = ['USD', 'EUR', 'COP', 'ARS', 'CLP', 'PEN'];
         JsonLd::addValue("mainEntity", [
             "@type" => 'ItemList',
-            "ItemListElement" =>
-                array_map(function ($currency) {
-                    return [
-                        "@type" => "ExchangeRateSpecification",
-                        "currency" => $currency,
-                        "currentExchangeRate" => [
-                            "@type" => "UnitPriceSpecification",
-                            "price" => round(getCurrency("VES{$currency}", 'value'), 2),
-                            "priceCurrency" => "VES",
-                        ],
-                    ];
-                }, ['USD', 'EUR', 'COP', 'ARS', 'CLP', 'PEN']),
+            "ItemListElement" => array_map(function ($currency) {
+                return [
+                    "@type" => "ExchangeRateSpecification",
+                    "currency" => $currency,
+                    "currentExchangeRate" => [
+                        "@type" => "UnitPriceSpecification",
+                        "price" => round(getCurrency("VES{$currency}", 'value'), 2),
+                        "priceCurrency" => "VES",
+                    ],
+                ];
+            }, ['USD', 'EUR', 'COP', 'ARS', 'CLP', 'PEN']),
         ]);
         return view('home');
     }
