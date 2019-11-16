@@ -57,7 +57,7 @@
                     <div class="mb-4">
                         <p class="">
                                     Dile adiós a todos los promedios, a los animales raros y a las casas de cambio que nadie sabe
-                                    dónde quedan, la tasa verdad es:
+                                    dónde quedan, la tasa de verdad para las monedas mas populares es:
                         </p>
                     </div>
                     <div class="flex-col border border-blue-700 rounded-lg mx-4 mt-2 mb-4 px-2">
@@ -186,9 +186,9 @@
                 <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
                 <div id="subad" class="flex justify-center text-white text-sm mt-1">
                     <div class="inline-flex mb-4">
-                        <img class="flag" src="https://brave.com/wp-content/uploads/2018/02/brave_icon_512x_twitter.png" class="h-4 w-4">
+                        <img class="w-6 h-6" src="https://brave.com/wp-content/uploads/2018/02/brave_icon_512x_twitter.png">
                         <span class="text-sm text-blue-lighter">
-                        ¿No te gusta la publicidad? <a href="https://brave.com/dol014" class="mr-1 text-orange-light hover:text-orange"> Descarga el navegador Brave </a>
+                        ¿No te gusta la publicidad? <a href="https://brave.com/dol014" class="mr-1 text-orange-400 hover:text-orange"> Descarga el navegador Brave </a>
                         y navega sin publicidades como esta, manteniendo tu privacidad y con mayor rapidez
                         </span>
                     </div>
