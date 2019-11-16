@@ -42,12 +42,15 @@
     </script>
 </head>
 <body class="open-sans text-lg text-blue-lighter md:text-xl bg-blue-800 bg">
-    <section class="container mx-auto pt-8 md:pt-32 px-2">
-        <div class="mb-4">
-            <p class="text-3xl md:text-5xl font-bold text-white">
-                Dolar de verdad
-            </p>
-        </div>
+    <div class="container mx-auto">
+        <nav class="flex items-center justify-between flex-wrap p-6">
+            <div class="flex items-center flex-shrink-0 text-white mr-6">
+                <img class="fill-current h-8 w-8 mr-2" alt="Dolardeverdad" src="/image/saving-a-dollar-coin.svg">
+                <span class="font-semibold text-xl tracking-tight">Dolar de Verdad</span>
+            </div>
+        </nav>
+    </div>
+    <section class="container mx-auto md:mt-8 px-2">
         <div id="app" class="md:flex">
             <div class="md:w-1/2 px-1">
                 <div>
@@ -62,7 +65,7 @@
                             <div>
                                 <p class="text-2xl text-blue-light font-bold roboto">
                                     1
-                                    <span class="text-lg">USD</span> = {{ number_format(getCurrency('VESUSD', 'value')) }}
+                                    <span class="text-lg">USD</span> = {{ number_format(getCurrency('VESUSD', 'value'), 0, ',', '.') }}
                                     <span class="text-lg">VES</span>
                                 </p>
                             </div>
@@ -74,7 +77,7 @@
                             <div>
                                 <p class="text-2xl text-blue-light font-bold roboto">
                                     1
-                                    <span class="text-lg">EUR</span> = {{ number_format(getCurrency('VESEUR', 'value')) }}
+                                    <span class="text-lg">EUR</span> = {{ number_format(getCurrency('VESEUR', 'value'), 0, ',', '.') }}
                                     <span class="text-lg">VES</span>
                                 </p>
                             </div>
@@ -86,7 +89,7 @@
                             <div>
                                 <p class="text-2xl text-blue-light font-bold roboto">
                                     1
-                                    <span class="text-lg">ARS</span> = {{ number_format(getCurrency('VESARS', 'value')) }}
+                                    <span class="text-lg">ARS</span> = {{ number_format(getCurrency('VESARS', 'value'), 1, ',', '.') }}
                                     <span class="text-lg">VES</span>
                                 </p>
                             </div>
@@ -98,7 +101,7 @@
                             <div>
                                 <p class="text-2xl text-blue-light font-bold roboto">
                                     1
-                                    <span class="text-lg">CLP</span> = {{ number_format(getCurrency('VESCLP', 'value')) }}
+                                    <span class="text-lg">CLP</span> = {{ number_format(getCurrency('VESCLP', 'value'), 2, ',', '.') }}
                                     <span class="text-lg">VES</span>
                                 </p>
                             </div>
@@ -110,7 +113,7 @@
                             <div>
                                 <p class="text-2xl text-blue-light font-bold roboto">
                                     1
-                                    <span class="text-lg">COP</span> = {{ number_format(getCurrency('VESCOP', 'value')) }}
+                                    <span class="text-lg">COP</span> = {{ number_format(getCurrency('VESCOP', 'value'), 2, ',', '.') }}
                                     <span class="text-lg">VES</span>
                                 </p>
                             </div>
@@ -122,8 +125,8 @@
                             <div>
                                 <p class="text-2xl text-blue-light font-bold roboto">
                                     1
-                                    <span class="text-lg">PEN</span> = {{ number_format(getCurrency('VESPEN', 'value')) }}
-                                    <span class="text-lg">VES</span>
+                                    <span class="text-lg">PEN</span> = {{ number_format(getCurrency('VESPEN', 'value'), 0, ',', '.') }}
+                                    <span class="text-lg">VES</span> 
                                 </p>
                             </div>
                             <div class="flex items-center">
@@ -182,10 +185,12 @@
                 </script>
                 <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
                 <div id="subad" class="flex justify-center text-white text-sm mt-1">
-                    <div class="inline-flex">
+                    <div class="inline-flex mb-4">
                         <img class="flag" src="https://brave.com/wp-content/uploads/2018/02/brave_icon_512x_twitter.png" class="h-4 w-4">
-                        <a href="https://brave.com/dol014" class="mr-1 text-orange-light hover:text-orange">Brave</a>
-                        is a browser that is build on chrome, with attention to privacy, speed and blocking ads like theese.
+                        <span class="text-sm text-blue-lighter">
+                        ¿No te gusta la publicidad? <a href="https://brave.com/dol014" class="mr-1 text-orange-light hover:text-orange"> Descarga el navegador Brave </a>
+                        y navega sin publicidades como esta, manteniendo tu privacidad y con mayor rapidez
+                        </span>
                     </div>
                 </div>
         </div>
