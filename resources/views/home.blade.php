@@ -45,7 +45,7 @@
     <div class="container mx-auto">
         <nav class="flex items-center justify-between flex-wrap p-6">
             <div class="flex items-center flex-shrink-0 text-white mr-6">
-                <img class="fill-current h-8 w-8 mr-2" alt="Dolardeverdad" src="/image/saving-a-dollar-coin.svg">
+                <img class="fill-current h-8 w-8 mr-2" alt="Dolardeverdad" src="/favicons/favicon-32x32.png">
                 <span class="font-semibold text-xl tracking-tight">Dolar de Verdad</span>
             </div>
         </nav>
@@ -61,7 +61,7 @@
                         </p>
                     </div>
                     <div class="flex-col border border-blue-700 rounded-lg mx-4 mt-2 mb-4 px-2">
-                        <div class="flex justify-between border-b border-blue-800 p-1 m-1">  
+                        <div class="flex justify-between border-b border-blue-800 p-1 m-1">
                             <div>
                                 <p class="text-2xl text-blue-light font-bold roboto">
                                     1
@@ -71,9 +71,9 @@
                             </div>
                             <div class="flex items-center">
                                 <img class="flag" alt="Dolar estadounidense" src="https://www.currencyexchangetoday.com/images/currency/USD.svg">
-                            </div> 
-                        </div>  
-                        <div class="flex justify-between border-b border-blue-800 p-1 m-1">  
+                            </div>
+                        </div>
+                        <div class="flex justify-between border-b border-blue-800 p-1 m-1">
                             <div>
                                 <p class="text-2xl text-blue-light font-bold roboto">
                                     1
@@ -83,9 +83,9 @@
                             </div>
                             <div class="flex items-center">
                                 <img class="flag" alt="Euro" src="https://www.currencyexchangetoday.com/images/currency/EUR.svg">
-                            </div> 
+                            </div>
                         </div>
-                        <div class="flex justify-between border-b border-blue-800 p-1 m-1">  
+                        <div class="flex justify-between border-b border-blue-800 p-1 m-1">
                             <div>
                                 <p class="text-2xl text-blue-light font-bold roboto">
                                     1
@@ -95,9 +95,9 @@
                             </div>
                             <div class="flex items-center">
                                 <img class="flag" alt="Peso Argentino" src="https://www.currencyexchangetoday.com/images/currency/ARS.svg">
-                            </div> 
-                        </div>  
-                        <div class="flex justify-between border-b border-blue-800 p-1 m-1">  
+                            </div>
+                        </div>
+                        <div class="flex justify-between border-b border-blue-800 p-1 m-1">
                             <div>
                                 <p class="text-2xl text-blue-light font-bold roboto">
                                     1
@@ -107,9 +107,9 @@
                             </div>
                             <div class="flex items-center">
                                 <img class="flag" alt="Peso Chileno" src="https://www.currencyexchangetoday.com/images/currency/CLP.svg">
-                            </div> 
+                            </div>
                         </div>
-                        <div class="flex justify-between border-b border-blue-800 p-1 m-1">  
+                        <div class="flex justify-between border-b border-blue-800 p-1 m-1">
                             <div>
                                 <p class="text-2xl text-blue-light font-bold roboto">
                                     1
@@ -119,22 +119,22 @@
                             </div>
                             <div class="flex items-center">
                                 <img class="flag" alt="Peso Colombiano" src="https://www.currencyexchangetoday.com/images/currency/COP.svg">
-                            </div> 
-                        </div>  
-                        <div class="flex justify-between p-1 m-1">  
+                            </div>
+                        </div>
+                        <div class="flex justify-between p-1 m-1">
                             <div>
                                 <p class="text-2xl text-blue-light font-bold roboto">
                                     1
                                     <span class="text-lg">PEN</span> = {{ number_format(getCurrency('VESPEN', 'value'), 0, ',', '.') }}
-                                    <span class="text-lg">VES</span> 
+                                    <span class="text-lg">VES</span>
                                 </p>
                             </div>
                             <div class="flex items-center">
                                 <img class="flag" alt="Sol Peruano" src="https://www.currencyexchangetoday.com/images/currency/PEN.svg">
-                            </div> 
-                        </div>                                              
+                            </div>
+                        </div>
                     </div>
-                    
+
                     <div class="pb-4">
                         <p class="pb-4  leading-normal">
                             ¿De dónde se obtiene el precio? de la simple oferta y demanda, es decir, de las transacciones
