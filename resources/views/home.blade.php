@@ -46,7 +46,7 @@
         <nav class="flex items-center justify-between flex-wrap p-6">
             <div class="flex items-center flex-shrink-0 text-white mr-6">
                 <img class="fill-current h-8 w-8 mr-2" alt="Dolardeverdad" src="/favicons/favicon-32x32.png">
-                <span class="font-semibold text-xl tracking-tight">Dolar de Verdad</span>
+                <h1 class="font-semibold text-xl tracking-tight">Dolar de Verdad</h1>
             </div>
         </nav>
     </div>
@@ -186,7 +186,7 @@
                 <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
                 <div id="subad" class="flex justify-center text-white text-sm mt-1">
                     <div class="inline-flex mb-4">
-                        <img class="w-6 h-6" src="https://brave.com/wp-content/uploads/2018/02/brave_icon_512x_twitter.png">
+                        <img alt="Brave" class="w-6 h-6" src="https://brave.com/wp-content/uploads/2018/02/brave_icon_512x_twitter.png">
                         <span class="text-sm text-blue-lighter">
                         ¿No te gusta la publicidad? <a href="https://brave.com/dol014" class="mr-1 text-orange-400 hover:text-orange"> Descarga el navegador Brave </a>
                         y navega sin publicidades como esta, manteniendo tu privacidad y con mayor rapidez
