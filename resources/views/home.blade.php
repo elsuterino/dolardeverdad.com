@@ -57,7 +57,7 @@
                     <div class="mb-4">
                         <p class="">
                                     Dile adiós a todos los promedios, a los animales raros y a las casas de cambio que nadie sabe
-                                    dónde quedan, la tasa de verdad para las monedas mas populares es:
+                                    dónde quedan, la tasa de verdad para las monedas más populares es:
                         </p>
                     </div>
                     <div class="flex-col border border-blue-700 rounded-lg mx-4 mt-2 mb-4 px-2">
@@ -164,7 +164,7 @@
                 </div>
             </div>
             <div class="md:w-1/2 px-1 md:ml-5 md:mt-2">
-                    <v-chart :data='{!! json_encode(Cache::get('chart-dataset')) !!}'></v-chart>
+                    <v-chart :data='{!! json_encode(getCurrency('VESUSD', 'chartData')) !!}'></v-chart>
             </div>
         </div>
         <div id="ad">
