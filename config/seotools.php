@@ -42,7 +42,7 @@ return [
             'url' => false, // Set null for using Url::current(), set false to total remove
             'type' => 'website',
             'site_name' => 'Dólar de Verdad',
-            'images' => [asset('/favicons/android-chrome-512x512.png')],
+            'images' => ['https://dolardeverdad.com/favicons/android-chrome-512x512.png'],
             'locale' => 'es_VE',
             'locale:alternate' => 'es_ES',
         ],
@@ -66,9 +66,9 @@ return [
             // set false to total remove
             'url' => false, // Set null for using Url::current(), set false to total remove
             'type' => 'WebPage',
-            'images' => ['/favicons/android-chrome-512x512.png'],
+            'images' => ['https://dolardeverdad.com/favicons/android-chrome-512x512.png'],
             "sameAs" => [
-                "https://twitter.com/weworkremotely",
+
             ],
         ],
     ],
