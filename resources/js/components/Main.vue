@@ -105,9 +105,9 @@
                     <div class="md:w-2/3">
                         <div class="bg-gray-800 p-6 mx-3 mb-6 rounded">
                             <div class="flex justify-between mb-4">
-                                <div>
+                                <div class="flex-1">
                                     <div class="uppercase text-gray-500">cotizacion</div>
-                                    <div class="font-bold text-3xl">
+                                    <div class="font-bold text-2xl md:text-3xl">
                                         {{ formatMoney(latest) }}
                                         <span v-if="!latest" class="opacity-0">Bs.S</span>
                                     </div>
@@ -119,17 +119,9 @@
                                         <div v-else class="opacity-0">%</div>
                                     </transition>
                                 </div>
-                                <div>
-                                    <div class="flex text-gray-500 justify-end mb-2">
-                                        <select class="px-4 py-1 bg-gray-700 rounded-lg outline-none focus:outline-none md:hidden"
-                                                v-model="period">
-                                            <option value="day">24H</option>
-                                            <option value="week">1S</option>
-                                            <option value="month">1M</option>
-                                            <option value="year">1A</option>
-                                        </select>
-
-                                        <button
+                                <div class="">
+                                    <div class="flex flex-1 text-gray-500 justify-end mb-2">
+                                                                                <button
                                             class="p-2 outline-none focus:outline-none hidden md:inline-block"
                                             type="button"
                                             :class="{'text-yellow-500': period === 'day'}"
@@ -165,17 +157,16 @@
                                         <!--                        ALL-->
                                         <!--                    </button>-->
                                     </div>
-                                    <div class="text-gray-500 text-right flex items-center justify-end">
-                                        <div class="mr-4">
-                                            <transition name="fade">
-                                                <div v-if="this.loading.chartData">
-                                                    <div
-                                                        class="w-6 h-6 border-2 rounded-full spin duration-500 border-gray-700"
-                                                        style="border-top-color: #ecc94b;"/>
-                                                </div>
-                                            </transition>
-                                        </div>
-                                        <select class="px-4 py-1 bg-gray-700 rounded-lg outline-none focus:outline-none"
+                                    <div class="text-gray-500 font-mono flex flex-col items-end">
+                                        <select class="px-3 py-1 bg-gray-700 rounded-lg outline-none focus:outline-none md:hidden mb-2"
+                                                v-model="period">
+                                            <option value="day">24H</option>
+                                            <option value="week">1S</option>
+                                            <option value="month">1M</option>
+                                            <option value="year">1A</option>
+                                        </select>
+
+                                        <select class="px-3 py-1 bg-gray-700 rounded-lg outline-none focus:outline-none"
                                                 v-model="currency">
                                             <option value="USD">USD</option>
                                             <option value="EUR">EUR</option>
@@ -188,17 +179,25 @@
                                 </div>
                             </div>
 
-                            <chart
-                                class="-mx-6"
-                                :chart-data="chartData"
-                            ></chart>
+                            <div class="-mx-6 relative">
+                                <transition name="fade">
+                                    <div v-if="this.loading.chartData" class="absolute top-0" style="right: 1.5rem;">
+                                        <div
+                                            class="w-6 h-6 border-2 rounded-full spin duration-500 border-gray-700"
+                                            style="border-top-color: #ecc94b;"/>
+                                    </div>
+                                </transition>
+                                <chart
+                                    :chart-data="chartData"
+                                ></chart>
+                            </div>
 
                             <div class="h-5 flex items-end justify-end">
-                                <div v-if="chartData.length" class="text-right text-xs">
-                                    <span class="text-gray-500">Desde</span>
-                                    <span>{{ new Date(chartData[0].time).toLocaleString() }}</span>
-                                    <span class="text-gray-500">hasta</span>
-                                    <span>{{ new Date(chartData[chartData.length - 1].time).toLocaleString() }}</span>
+                                <div v-if="chartData.length" class="text-right text-xs text-gray-400">
+                                    <span class="text-gray-600">Desde</span>
+                                    <span>{{ new Date(chartData[0].time).toLocaleDateString('es-VE') }}</span>
+                                    <span class="text-gray-600">hasta</span>
+                                    <span>{{ new Date(chartData[chartData.length - 1].time).toLocaleDateString('es-VE') }}</span>
                                 </div>
                             </div>
 <!--                                <ul v-if="chartData.length"-->

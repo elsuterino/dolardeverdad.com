@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <meta name="yandex-verification" content="0c762508645a7168"/>
-    <script data-ad-client="ca-pub-6381837279968330" async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
     {!! SEO::generate() !!}
 
     <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
@@ -21,11 +17,7 @@
     <!-- Fonts -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css">
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-
-
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+{{--    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">--}}
 
     <style>
         [v-cloak] {
