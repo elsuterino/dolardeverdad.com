@@ -109,12 +109,14 @@
                                     <div class="uppercase text-gray-500">cotizacion</div>
                                     <div class="font-bold text-3xl">
                                         {{ formatMoney(latest) }}
+                                        <span v-if="!latest" class="opacity-0">Bs.S</span>
                                     </div>
                                     <transition name="fade" mode="out-in" tag="div">
                                         <div v-if="!loading.chartData"
                                              :class="[gross > 0 ? 'text-green-500' : 'text-red-500']">
                                             {{ chart.source.id }} ({{ gross | formatPercent }}%)
                                         </div>
+                                        <div v-else class="opacity-0">%</div>
                                     </transition>
                                 </div>
                                 <div>
@@ -257,7 +259,11 @@
                     chartData: false
                 },
                 chart: {
-                    source: {}
+                    source: {
+                        id: "USD",
+                        name: "US Dollar",
+                        name_es: "Dólar estadounidense",
+                    }
                 }
             }
         },
