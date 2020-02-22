@@ -61,6 +61,6 @@ class HomeController extends Controller
             }),
         ]);
 
-        return view('home2', ['latestRates' => [], 'currencyRates' => $currencyRates]);
+        return view('home', ['currencyRates' => $currencyRates]);
     }
 }

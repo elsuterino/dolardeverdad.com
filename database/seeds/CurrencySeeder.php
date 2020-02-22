@@ -22,7 +22,7 @@ class CurrencySeeder extends Seeder
         \App\Currency::create([
             'id' => 'ARS',
             'name' => 'Argentine Peso',
-            'name_es' => 'Peso Argentino',
+            'name_es' => 'Peso argentino',
             'decimals' => 2
         ]);
 
@@ -36,7 +36,7 @@ class CurrencySeeder extends Seeder
         \App\Currency::create([
             'id' => 'COP',
             'name' => 'Peso Colombiano',
-            'name_es' => 'Peso Colombiano',
+            'name_es' => 'Peso colombiano',
             'decimals' => 2
         ]);
 
@@ -51,7 +51,7 @@ class CurrencySeeder extends Seeder
         \App\Currency::create([
             'id' => 'PEN',
             'name' => 'Sol Peruano',
-            'name_es' => 'Sol Peruano',
+            'name_es' => 'Sol peruano',
             'decimals' => 2,
         ]);
 
