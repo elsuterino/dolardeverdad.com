@@ -20,6 +20,7 @@
         "fideloper/proxy": "^4.0",
         "inetvi/currencybitcoin": "dev-master",
         "influxdb/influxdb-php": "^1.14",
+        "laravel/airlock": "^0.2.1",
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",
         "predis/predis": "^1.1"

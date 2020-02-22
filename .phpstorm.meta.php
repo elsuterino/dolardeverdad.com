@@ -5,7 +5,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2019-11-15 13:47:56.
+    * Generated on 2020-02-20 09:57:58.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -122,7 +122,7 @@ namespace PHPSTORM_META {
         'cookie' => \Illuminate\Cookie\CookieJar::class,
         'currencybitcoin' => \Inetvi\CurrencyBitcoin\CurrencyBitcoin::class,
         'db' => \Illuminate\Database\DatabaseManager::class,
-        'db.connection' => \Illuminate\Database\MySqlConnection::class,
+        'db.connection' => \Illuminate\Database\PostgresConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
         'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
@@ -275,7 +275,7 @@ namespace PHPSTORM_META {
         'cookie' => \Illuminate\Cookie\CookieJar::class,
         'currencybitcoin' => \Inetvi\CurrencyBitcoin\CurrencyBitcoin::class,
         'db' => \Illuminate\Database\DatabaseManager::class,
-        'db.connection' => \Illuminate\Database\MySqlConnection::class,
+        'db.connection' => \Illuminate\Database\PostgresConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
         'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
@@ -428,7 +428,7 @@ namespace PHPSTORM_META {
         'cookie' => \Illuminate\Cookie\CookieJar::class,
         'currencybitcoin' => \Inetvi\CurrencyBitcoin\CurrencyBitcoin::class,
         'db' => \Illuminate\Database\DatabaseManager::class,
-        'db.connection' => \Illuminate\Database\MySqlConnection::class,
+        'db.connection' => \Illuminate\Database\PostgresConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
         'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
@@ -581,7 +581,7 @@ namespace PHPSTORM_META {
         'cookie' => \Illuminate\Cookie\CookieJar::class,
         'currencybitcoin' => \Inetvi\CurrencyBitcoin\CurrencyBitcoin::class,
         'db' => \Illuminate\Database\DatabaseManager::class,
-        'db.connection' => \Illuminate\Database\MySqlConnection::class,
+        'db.connection' => \Illuminate\Database\PostgresConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
         'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
@@ -734,7 +734,7 @@ namespace PHPSTORM_META {
         'cookie' => \Illuminate\Cookie\CookieJar::class,
         'currencybitcoin' => \Inetvi\CurrencyBitcoin\CurrencyBitcoin::class,
         'db' => \Illuminate\Database\DatabaseManager::class,
-        'db.connection' => \Illuminate\Database\MySqlConnection::class,
+        'db.connection' => \Illuminate\Database\PostgresConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
         'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
@@ -887,7 +887,7 @@ namespace PHPSTORM_META {
         'cookie' => \Illuminate\Cookie\CookieJar::class,
         'currencybitcoin' => \Inetvi\CurrencyBitcoin\CurrencyBitcoin::class,
         'db' => \Illuminate\Database\DatabaseManager::class,
-        'db.connection' => \Illuminate\Database\MySqlConnection::class,
+        'db.connection' => \Illuminate\Database\PostgresConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
         'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
@@ -1040,7 +1040,7 @@ namespace PHPSTORM_META {
         'cookie' => \Illuminate\Cookie\CookieJar::class,
         'currencybitcoin' => \Inetvi\CurrencyBitcoin\CurrencyBitcoin::class,
         'db' => \Illuminate\Database\DatabaseManager::class,
-        'db.connection' => \Illuminate\Database\MySqlConnection::class,
+        'db.connection' => \Illuminate\Database\PostgresConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
         'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
@@ -1193,7 +1193,7 @@ namespace PHPSTORM_META {
         'cookie' => \Illuminate\Cookie\CookieJar::class,
         'currencybitcoin' => \Inetvi\CurrencyBitcoin\CurrencyBitcoin::class,
         'db' => \Illuminate\Database\DatabaseManager::class,
-        'db.connection' => \Illuminate\Database\MySqlConnection::class,
+        'db.connection' => \Illuminate\Database\PostgresConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
         'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
@@ -1234,6 +1234,7 @@ namespace PHPSTORM_META {
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
     ]));
+
 
     override(\Illuminate\Support\Arr::add(0), type(0));
     override(\Illuminate\Support\Arr::except(0), type(0));

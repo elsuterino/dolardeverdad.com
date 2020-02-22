@@ -1,7 +1,13 @@
 module.exports = {
-  theme: {
-    extend: {}
-  },
-  variants: {},
-  plugins: []
+    theme: {
+        extend: {
+            cursor: {
+                crosshair: 'crosshair',
+            }
+        },
+    },
+    variants: {
+        borderWidth: ['responsive', 'last'],
+    },
+    plugins: [],
 }

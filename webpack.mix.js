@@ -8,7 +8,5 @@ mix.js('resources/js/app.js', 'public/js')
         processCssUrls: false,
         postCss: [tailwindcss('./tailwind.config.js')],
     })
-    .purgeCss({
-        whitelistPatterns: [/amznBanners_assoc_banner_placement_default_0_img/],
-    })
+    .purgeCss()
     .version();

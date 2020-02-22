@@ -2,41 +2,65 @@
 
 namespace App\Http\Controllers;
 
+use App\Currency;
+use App\CurrencyRate;
 use Artesaos\SEOTools\Facades\JsonLd;
+use Carbon\Carbon;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
+use InfluxDB\Client;
 
 class HomeController extends Controller
 {
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Exception
      */
     public function index()
     {
-//        JsonLd::addValue("mainEntity", [
-//            "@type" => "ExchangeRateSpecification",
-//            "currency" => "USD",
-//            "currentExchangeRate" => [
-//                "@type" => "UnitPriceSpecification",
-//                "price" => round(getCurrency('VESUSD', 'value'), 2),
-//                "priceCurrency" => "VES",
-//            ],
-//        ]);
-
-        $currenciesToCompare = ['USD', 'EUR', 'COP', 'ARS', 'CLP', 'PEN'];
-        JsonLd::addValue("mainEntity", [
-            "@type" => 'ItemList',
-            "ItemListElement" => array_map(function ($currency) {
+        $currencyRates = CurrencyRate::where('target_id', 'VES')
+            ->selectRaw("
+                LAST(value, created_at) / FIRST(value, created_at) * 100 - 100 as gross,
+                LAST(value, created_at) as value,
+                FIRST(source_id, created_at) as source_id,
+                FIRST(target_id, created_at) as target_id
+            ")
+            ->with(['source', 'target'])
+            ->where('created_at', '>', now()->subDay())
+            ->groupBy('source_id')
+            ->orderByDesc('value')
+            ->get()
+            ->map(function ($currencyRate) {
                 return [
-                    "@type" => "ExchangeRateSpecification",
-                    "currency" => $currency,
-                    "currentExchangeRate" => [
-                        "@type" => "UnitPriceSpecification",
-                        "price" => round(getCurrency("VES{$currency}", 'value'), 2),
-                        "priceCurrency" => "VES",
+                    'gross' => $currencyRate['gross'],
+                    'value' => $currencyRate['value'],
+                    'source' => [
+                        'id' => $currencyRate['source']['id'],
+                        'name' => $currencyRate['source']['name_es'],
+                    ],
+                    'target' => [
+                        'id' => $currencyRate['target']['id'],
+                        'name' => $currencyRate['target']['name_es'],
                     ],
                 ];
-            }, ['USD', 'EUR', 'COP', 'ARS', 'CLP', 'PEN']),
+            });
+
+        JsonLd::addValue("mainEntity", [
+            "@type" => 'ItemList',
+            "ItemListElement" => $currencyRates->map(function ($currencyRate) {
+                return [
+                    "@type" => "ExchangeRateSpecification",
+                    "currency" => $currencyRate['source']['id'],
+                    "currentExchangeRate" => [
+                        "@type" => "UnitPriceSpecification",
+                        "price" => $currencyRate['value'],
+                        "priceCurrency" => $currencyRate['target']['id'],
+                    ],
+                ];
+            }),
         ]);
-        return view('home');
+
+        return view('home2', ['latestRates' => [], 'currencyRates' => $currencyRates]);
     }
 }
