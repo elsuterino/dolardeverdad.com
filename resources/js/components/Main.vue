@@ -229,9 +229,6 @@
                 </div>
             </div>
         </section>
-        <section class="text-center py-4">
-            © {{ new Date().getFullYear() }} Inetvi. All rights reserved.
-        </section>
     </div>
 </template>
 
